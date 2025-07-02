@@ -1,0 +1,35 @@
+version: '3.9'
+
+services:
+  db:
+    image: postgres:15
+    container_name: blog-db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Yakob@72119
+      POSTGRES_DB: blog
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - blog-network
+
+  app:
+    build: .
+    container_name: blog-backend
+    depends_on:
+      - db
+    ports:
+      - "3000:3000"
+      - "5555:5555"  # 👈 This exposes Prisma Studio
+    environment:
+      DATABASE_URL: postgresql://postgres:Yakob@72119@db:5432/blog?schema=public
+    networks:
+      - blog-network
+
+volumes:
+  pgdata:
+
+networks:
+  blog-network:
