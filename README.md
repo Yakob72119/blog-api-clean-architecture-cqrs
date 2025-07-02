@@ -1,106 +1,141 @@
-# Blog API - Clean Architecture + CQRS
 
-This project is a **NestJS REST API** for a blog system (Users, Posts, Comments) built with:
+# Blog API — Clean Architecture + CQRS
+
+A **NestJS REST API** for a blog system (Users, Posts, Comments) built using:
 
 ✅ Clean Architecture  
 ✅ Domain-Driven Design (DDD)  
 ✅ Repository Pattern  
 ✅ CQRS (Command Query Responsibility Segregation)  
+✅ Prisma ORM + PostgreSQL  
 
 ---
 
-## 📌 Features
+## 🚀 Features
 
 - **User Registration**
-- **Post CRUD (Create, Read, Update, Delete)**
-- **Add Comment to a Post**
-- **CQRS applied across core features**
-- **JWT authentication**
-- **Swagger API documentation**
+- **JWT-based Authentication**
+- **Full CRUD for Posts**
+- **Add Comment to Posts**
+- **CQRS applied for all core features**
+- **Postman API documentation**
 
 ---
 
-## 🚀 Tech Stack
+## ⚙️ Tech Stack
 
 - **NestJS**
-- **PostgreSQL** 
-- **prisma** 
+- **PostgreSQL**
+- **Prisma ORM**
 - **CQRS module**
-- **JWT for auth**
-- **postman for API docs**
+- **JWT for Authentication**
+- **Postman for API docs**
 
 ---
 
 ## 🗂 Project Structure
 
+```
 src/
-├── modules/
-│ ├── users/
-│ ├── posts/
-│ └── comments/
-├── shared/
-├── infrastructure/
-├── application/
-├── domain/
-└── main.ts
+ ├── modules/
+ │    ├── users/
+ │    ├── posts/
+ │    └── comments/
+ ├── domain/
+ ├── application/
+ ├── infrastructure/
+ ├── shared/
+ └── main.ts
+```
 
-
-- `domain/`: Entities, aggregates, domain services
-- `application/`: Use cases, DTOs, CQRS handlers
-- `infrastructure/`: DB, external services
-- `modules/`: Feature modules (Users, Posts, Comments)
+- `domain/` — Entities, aggregates, domain services
+- `application/` — Use cases, DTOs, CQRS handlers
+- `infrastructure/` — Database, external services
+- `modules/` — Feature modules
+- `shared/` — Common utilities
 
 ---
 
-## ⚙️ Installation
+## 💻 Installation
+
+### 1️⃣ Clone the repository
 
 ```bash
-# Clone the repository
-git clone https://github.com/YOUR_USERNAME/blog-api-clean-architecture-cqrs.git
+git clone https://github.com/Yakob72119/blog-api-clean-architecture-cqrs.git
 cd blog-api-clean-architecture-cqrs
+```
 
-# Install dependencies
+### 2️⃣ Install dependencies
+
+```bash
 npm install
+```
 
-# Configure environment variables
+### 3️⃣ Configure environment variables
+
+```bash
 cp .env.example .env
-# Edit .env with your DB credentials
-
-# Run migrations / sync DB (if applicable)
-# npm run typeorm migration:run
-# or
-# npm run db:sync
-
-# Start the app
-npm run start:dev
-
-💡 CQRS & Clean Architecture
-All commands (write operations) and queries (read operations) are separated using NestJS CQRS module.
-
-Repositories abstract DB access.
-
-Controllers delegate to use-cases/handlers — no business logic in controllers.
-
-🐳 Docker 
-docker-compose up --build
-
-
-✍️ Author
-Yakob Beshahwered
-
-📄 License
-This project is licensed under the MIT License.
-
+```
+Edit `.env` to include your PostgreSQL connection string and other secrets.
 
 ---
 
-⚡ **Next Steps:**  
-If you tell me:
-- DB used (PostgreSQL or MySQL?)  
-- ORM used (TypeORM / Sequelize / Prisma / other?)  
-- Whether you did Docker or testing  
+### 4️⃣ Setup the database
 
-👉 I can fine-tune this README and make it ready to drop into your repo.
+Run Prisma migrations:
 
-Do you want me to generate that final README as a file for you? Let me know! 🚀
+```bash
+npx prisma migrate dev --name init
+```
 
+(Optional: Generate Prisma client)
+```bash
+npx prisma generate
+```
+
+---
+
+### 5️⃣ Start the application
+
+```bash
+npm run start:dev
+```
+
+---
+
+## 🧪 API Documentation
+
+Postman collection available at:  
+👉 **[Link to Postman collection](#)** 
+
+---
+
+## 🐳 Docker
+
+💡 Docker setup will be added soon with `Dockerfile` and `docker-compose.yml` for easy deployment.
+
+---
+
+## 🧪 Testing
+
+✅ Unit and integration tests planned (coming soon).
+
+---
+
+## 💡 Notes
+
+- **CQRS:** All commands (writes) and queries (reads) are handled via the NestJS CQRS module.
+- **Prisma:** Prisma is used for database access with type safety.
+- **Security:** JWT-based authentication applied for protected routes.
+
+---
+
+## ✍️ Author
+
+Yakob Beshahwered
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
