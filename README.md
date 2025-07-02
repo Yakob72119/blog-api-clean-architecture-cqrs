@@ -93,7 +93,13 @@ npx prisma migrate dev --name init
 npx prisma generate
 ```
 
----
+2️⃣ Run Prisma Studio
+Any time you want to browse/edit DB:
+
+```bash
+docker exec -it blog-backend npx prisma studio
+```
+
 
 ### 5️⃣ Start the application
 
@@ -112,7 +118,10 @@ Postman collection available at:
 
 ## 🐳 Docker
 
-💡 Docker setup will be added soon with `Dockerfile` and `docker-compose.yml` for easy deployment.
+```bash
+docker compose up --build -d
+```
+
 
 ---
 
