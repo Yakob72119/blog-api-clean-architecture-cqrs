@@ -112,7 +112,7 @@ npm run start:dev
 ## 🧪 API Documentation
 
 Postman collection available at:  
-👉 **[https://documenter.getpostman.com/view/46351767/2sB34bKi1e](#)** 
+👉 [View API Documentation](https://documenter.getpostman.com/view/46351767/2sB34bKi1e)
 
 ---
 
